@@ -1,4 +1,4 @@
-import { l as renderJSX, n as createVNode, o as AstroJSX, p as AstroUserError } from './chunks/astro/server_ByiXJo5m.mjs';
+import { l as renderJSX, n as createVNode, o as AstroJSX, p as AstroUserError } from './chunks/astro/server_Dc87UOJt.mjs';
 import 'piccolore';
 import 'clsx';
 
