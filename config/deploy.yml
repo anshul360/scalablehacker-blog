@@ -21,7 +21,9 @@ proxy:
   ssl: 
     certificate_pem: CERT_PEM # Cloudflare origin certificate
     private_key_pem: SECRET_PEM # Cloudflare origin key
-  host: www.scalablehacker.com
+  hosts: 
+    - www.scalablehacker.com
+    - scalablehacker.com
   # Proxy connects to your container on port 80 by default.
   app_port: 4321
   healthcheck:
