@@ -33,18 +33,19 @@ import { Icon } from "astro-icon/components";
 				href="/"
 			>	
 				<!-- Logo -->
-				<!--
-				<div class="pt-1.5">
-					<svg class="inline-block size-8 fill-current text-accent-base drop-shadow-[0px_2.5px_2.5px_rgba(0,0,0,0.35)]">
+				
+				<div class=" text-4xl">
+					<!-- <svg class="inline-block size-8 fill-current text-accent-base drop-shadow-[0px_2.5px_2.5px_rgba(0,0,0,0.35)]">
 						<use href="/brand.svg#brand"></use>
-					</svg>
+					</svg> -->
+					👨‍💻
 				</div>
-				-->
-				<div title={siteConfig.title}>
+				
+				<!-- <div title={siteConfig.title}>
 					<svg class="inline-block size-8 fill-current text-accent-base dark:text-accent-two drop-shadow-[0px_2.5px_2.5px_rgba(0,0,0,0.35)]">
 						<use href="/brand.svg#citrus"></use>
 					</svg>
-				</div>
+				</div> -->
 				
 				<strong class="'max-[320px]:hidden' bg-clip-text text-transparent bg-gradient-to-r from-accent-one to-accent-two hidden xs:block z-10 mb-0.5 ms-2 text-2xl group-hover:text-accent-one">
 					{siteConfig.title}
@@ -52,11 +53,11 @@ import { Icon } from "astro-icon/components";
 			</a>
 			<nav
 				aria-label="Main menu"
-				class="top-20 text-sm mx-auto ml-4 ml-auto hidden flex-col items-end justify-center gap-x-4 rounded-md bg-bgColor font-medium text-accent-two shadow backdrop-blur group-[.menu-open]:z-50 group-[.menu-open]:flex sm:static sm:z-auto sm:flex-row sm:items-center sm:rounded-none sm:bg-transparent sm:shadow-none sm:backdrop-blur-none md:flex"
+				class="top-20 text-sm mx-auto ml-auto hidden flex-col items-end justify-center gap-x-4 rounded-md bg-bgColor font-medium text-accent-two shadow backdrop-blur group-[.menu-open]:z-50 group-[.menu-open]:flex sm:static sm:z-auto sm:flex-row sm:items-center sm:rounded-none sm:bg-transparent sm:shadow-none sm:backdrop-blur-none md:flex"
 				id="main-navigation-menu"
 			>	
-				<!--				
-				<a
+								
+				<!-- <a
 					aria-current={Astro.url.pathname === "/" ? "page" : false}
 					class="flex gap-x-1 h-8 items-center justify-center rounded-lg underline-offset-2 hover:underline"
 					href="/"
@@ -77,30 +78,34 @@ import { Icon } from "astro-icon/components";
 						name="solar:archive-bold"
 					/>
 					Blog
-				</a>
-				-->
+				</a> -->
+				
 
 				<!-- Ссылки меню -->
 				{
 					menuLinks.map((link) => (
 						<a
 							aria-current={Astro.url.pathname === link.path ? "page" : false}
-							class="underline-offset-2 hover:underline"
+							class="flex gap-x-1 h-8 items-center justify-center rounded-lg underline-offset-2 hover:underline"
 							data-astro-prefetch
 							href={link.path}
 						>
+							<Icon
+								class="size-5 drop-shadow-[0px_1.5px_1.5px_rgba(0,0,0,0.175)]"
+								name={link.icon}
+							/>
 							{link.title}
 						</a>
 					))
 				}
 				
-				<a
+				<!-- <a
 					class="flex h-8 items-center rounded-lg bg-accent-base/5 px-4 text-accent-base underline-offset-2 hover:bg-accent-base/10"
 					data-astro-prefetch
 					href="/posts/citrus-docs/intro/"
 				>
 					Docs
-				</a>
+				</a> -->
 				
 				<!-- Dropdown menu button for large screens. Needs improvement. -->
 				<!--

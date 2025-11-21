@@ -1,0 +1,25 @@
+---
+title: Scalar API Docs
+description: Replace Swagger UI with Scalar API Docs
+publishDate: "2025-11-21T11:23:00Z"
+---
+
+You can self-host a Scalar API Reference (docs) by embedding their JS component. For example:
+
+```html
+<!doctype html>
+<html>
+  <body>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@scalar/api-reference"></script>
+    <script>
+      Scalar.createApiReference('#app', {
+        url: '/path/to/your/openapi.json',   // point to your OpenAPI spec
+        // optional proxyUrl or other config
+      })
+    </script>
+  </body>
+</html>
+```
+
+And thats it.

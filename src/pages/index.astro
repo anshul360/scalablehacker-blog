@@ -29,7 +29,7 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
 		<div class="absolute top-[-20%] left-[-50%] w-[85%] h-full bg-gradient-to-b from-indigo-300 via-orange-300 to-transparent rounded-full opacity-60 dark:opacity-10"></div>
 		<div class="absolute top-[-20%] right-[-50%] w-[85%] h-full bg-gradient-to-b from-orange-300 via-indigo-300 to-transparent rounded-full opacity-60 dark:opacity-10"></div>
 	</div>
-	<section class="max-w-xl mx-auto relative flex items-center justify-center h-screen -mt-24">
+	<!-- <section class="max-w-xl mx-auto relative flex items-center justify-center h-screen -mt-24">
 		<div class="w-full text-center">
 			<span class="title text-3xl bg-gradient-to-r from-accent-two/85 via-accent-one/85 to-accent-two/85 dark:from-accent-two dark:via-accent-one dark:to-accent-two bg-clip-text text-transparent">
 				Introducing Astro Citrus!
@@ -54,7 +54,7 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
 				</a>
 			</div>
 		</div>
-	</section>
+	</section> -->
 
 	<!-- Posts Section -->
 	<section aria-label="Blog post list" class="'mt-[-100vh] pt-[100vh]'">
@@ -65,7 +65,7 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
 			{
 				allPostsByDate.map((p) => (
 					<li class="gap-2 sm:grid-cols-[auto_1fr]">
-						<PostPreview post={p} />
+						<PostPreview post={p} withDesc/>
 					</li>
 				))
 			}

@@ -22,11 +22,15 @@ import {
   transformerMetaHighlight,
   transformerNotationDiff,
 } from "@shikijs/transformers";
+import node from '@astrojs/node';
 
 // https://astro.build/config
 export default defineConfig({
+  adapter: node({
+    mode: 'standalone',
+  }),
   image: {
-    domains: ["webmention.io"],
+    domains: ["animationapi.com"],
   },
   integrations: [
     icon(),
@@ -115,7 +119,7 @@ export default defineConfig({
   // https://docs.astro.build/en/guides/prefetch/
   prefetch: true,
   // ! Please remember to replace the following site property with your own domain
-  site: "http://astrocitrus.artemkutsan.pp.ua/",
+  site: "https://www.scalablehacker.com/",
   vite: {
     build: {
       sourcemap: true, // Source maps generation
