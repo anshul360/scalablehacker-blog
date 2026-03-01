@@ -23,13 +23,8 @@ import {
   transformerMetaHighlight,
   transformerNotationDiff,
 } from "@shikijs/transformers";
-import node from '@astrojs/node';
-
 // https://astro.build/config
 export default defineConfig({
-  adapter: node({
-    mode: 'standalone',
-  }),
   image: {
     domains: ["animationapi.com"],
   },
