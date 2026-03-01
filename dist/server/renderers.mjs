@@ -246,7 +246,7 @@ const renderer = {
 };
 var server_default = renderer;
 
-const renderers = [Object.assign({"name":"@astrojs/react","clientEntrypoint":"@astrojs/react/client.js","serverEntrypoint":"@astrojs/react/server.js"}, { ssr: server_default$1 }),Object.assign({"name":"astro:jsx","serverEntrypoint":"file:///Users/anshul360/personal_site/scalablehacker-citrus/node_modules/.pnpm/@astrojs+mdx@4.3.13_astro@5.18.0_@types+node@22.13.10_jiti@1.21.7_rollup@4.35.0_typescript@5.8.2_yaml@2.7.1_/node_modules/@astrojs/mdx/dist/server.js"}, { ssr: server_default }),];
+const renderers = [Object.assign({"name":"@astrojs/react","clientEntrypoint":"@astrojs/react/client.js","serverEntrypoint":"@astrojs/react/server.js"}, { ssr: server_default$1 }),Object.assign({"name":"astro:jsx","serverEntrypoint":"file:///Users/anshul360/personal_site/scalablehacker-citrus/node_modules/@astrojs/mdx/dist/server.js"}, { ssr: server_default }),];
 
 export { renderers };
 //# sourceMappingURL=renderers.mjs.map
