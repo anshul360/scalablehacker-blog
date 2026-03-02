@@ -66,7 +66,7 @@ export default function SceneContainer({
 					castShadow
 				/>
 
-				{showGrid && (
+				{/* {showGrid && (
 					<Grid
 						args={[gridSize, gridDivisions]}
 						cellColor={colors.gridPrimary}
@@ -75,7 +75,7 @@ export default function SceneContainer({
 						fadeDistance={gridSize * 2}
 						rotation={[Math.PI / 2, 0, 0]} // Rotate around the X-axis
 					/>
-				)}
+				)} */}
 
 				{showAxes && <axesHelper args={[2]} />}
 

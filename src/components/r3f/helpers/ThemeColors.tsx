@@ -15,7 +15,7 @@ function isDarkTheme(): boolean {
 function resolveColors(): ThemeColors {
 	const dark = isDarkTheme();
 	return {
-		bg: dark ? "#0d1b2a" : "#f5f5f5",
+		bg: "#0d1b2a",
 		gridPrimary: dark ? "#2a3a4a" : "#d0d0d0",
 		gridSection: dark ? "#1a2a3a" : "#e8e8e8",
 		isDark: dark,
