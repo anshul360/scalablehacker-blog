@@ -1,0 +1,32 @@
+---
+title: "Turret Allignment(Practice 3)"
+description: "Applying the game concepts (Collision, Raycast, Vector Dot & Cross products)"
+publishDate: "03 Mar 2026"
+updatedDate: "03 Mar 2026"
+coverImage:
+  src: "./assign3.png"
+  alt: "Assignment 3"
+tags: ["threejs", "r3f", "game dev"]
+---
+
+import Assignment3SceneA from "./Assignment3SceneA";
+
+This is part of [Math for Game Devs by Freya Holmér](https://acegikmo.notion.site/Lectures-Assignments-a4419295f33f46c3af113eb74b407607)
+
+## Interactive Demo
+
+<Assignment3SceneA client:visible />
+
+## Requirements Coverted to Three.js & R3F
+- **a**
+    - Write code for placing and aligning a turret on a surface in front of the player, similar to how you would place a turret in an FPS game like TF2 or Overwatch
+    - Make a simple turret using primitives, and make sure its topmost parent object is at the bottom of the turret for easy placement
+    - You can use a simple raycast from a camera, and place the turret in OnDrawGizmos to make the assignment easier to test
+    - Remember all the tools and vectors you have available, both on the raycast hit as well as on the camera itself!
+- **b**
+    - You also need to fix a bug that ~~freya~~ your coworker introduced! The turret seems to be tilted sideways when there’s a sideways slope relative to the camera - it doesn’t actually always point forwards. Why is that? And how would you fix it?
+        The turret is pointing a little bit to the right
+        Note how the blue vector of the turret isn’t pointing in the same direction as the camera, when viewed from above
+
+## Code
+[GitHub](https://github.com/anshul360/scalablehacker-blog/blob/main/src/content/post/assignment3/Assignment3SceneA.tsx)
