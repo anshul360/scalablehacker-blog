@@ -55,7 +55,7 @@ export default function SceneContainer({
 		>
 			<Canvas
 				camera={{ position: cameraPosition, fov: cameraFov }}
-				style={{ background: colors.bg }}
+				style={{ background: "#ffffff"/*colors.bg*/ }}
 				dpr={[1, 2]}
 				shadows
 			>

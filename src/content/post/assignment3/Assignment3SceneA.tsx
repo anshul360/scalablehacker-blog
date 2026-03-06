@@ -10,6 +10,7 @@ import {
   useState,
 } from "react";
 import * as THREE from "three";
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 const SceneContext = createContext({ hops: 5, seed: 42 });
 
@@ -53,7 +54,8 @@ function ConcaveSurface() {
   }, [seed]);
 
   const surfaceMeshRef = useRef<THREE.Mesh>(null);
-  const turretRef = useRef<THREE.Group>(null);
+  const turretRef = useRef<THREE.Object3D>(null);
+  const gunRef = useRef<THREE.Object3D>(null);
   const keys = useRef<{ w: boolean; a: boolean; s: boolean; d: boolean }>({
     w: false,
     a: false,
@@ -106,10 +108,24 @@ function ConcaveSurface() {
     };
   }, []);
 
-  const { camera, controls } = useThree();
+  const { camera, controls, scene } = useThree();
+
+  useEffect(() => {
+    const loader = new GLTFLoader();
+    loader.load('/turret1.gltf', (gltf) => {
+      scene.add(gltf.scene);
+      turretRef.current = gltf.scene;
+      gunRef.current = gltf.scene.getObjectByName("gun")!;
+    }, undefined, (error) => {
+      console.error(error);
+    });
+    return () => {
+      // cleanup on unmount
+    };
+  }, [scene]);
 
   useFrame(() => {
-    if (!surfaceMeshRef.current || !turretRef.current) return;
+    if (!surfaceMeshRef.current || !turretRef.current || !gunRef.current) return;
 
     // Get camera's forward direction projected onto the XZ plane
     const forward = new THREE.Vector3();
@@ -185,10 +201,14 @@ function ConcaveSurface() {
         yawAngle
       );
       // Combine: first apply yaw, then tilt
-      const targetQuat = tiltQuat.multiply(yawQuat);
+      const targetQuat = tiltQuat.clone().multiply(yawQuat);
 
       // Smoothly interpolate toward target orientation
-      turretRef.current.quaternion.slerp(targetQuat, rotationLerpFactor);
+      turretRef.current.quaternion.slerp(tiltQuat, rotationLerpFactor);
+
+      const offsetQuat = gunRef.current.quaternion.clone();
+
+      gunRef.current.quaternion.slerp(yawQuat, rotationLerpFactor)//.multiply(offsetQuat);
     }
   });
 
@@ -210,7 +230,7 @@ function ConcaveSurface() {
         </mesh>
       )}
       {/* turret */}
-      <group position={[0, 5, 0]} ref={turretRef}>
+      {/* <group position={[0, 5, 0]} ref={turretRef}>
         <mesh>
           <sphereGeometry args={[2, , , , , , 1.55]} translate={[0, -2, 0]} />
           <meshStandardMaterial
@@ -227,7 +247,7 @@ function ConcaveSurface() {
             roughness={0.1}
           />
         </mesh>
-      </group>
+      </group> */}
     </>
   );
 }
