@@ -1,0 +1,32 @@
+---
+title: "Turret Triger(Practice 4)"
+description: "Applying the game concepts (Collision, Raycast, Vector Dot & Cross products)"
+publishDate: "06 Mar 2026"
+updatedDate: "06 Mar 2026"
+coverImage:
+  src: "./assign3.png"
+  alt: "Assignment 4"
+tags: ["threejs", "r3f", "game dev"]
+---
+
+import Assignment4SceneA from "./Assignment4SceneA";
+
+This is part of [Math for Game Devs by Freya Holmér](https://acegikmo.notion.site/Lectures-Assignments-a4419295f33f46c3af113eb74b407607)
+
+## Interactive Demo
+
+<Assignment4SceneA client:visible />
+
+## Requirements Coverted to Three.js & R3F
+- **5a**
+    - Give the turret a configurable target detection range and height
+    - Make sure this is relative to the turret placement’s local space!
+    - Note: Drawing the trigger itself is harder than solving this problem mathematically, so don’t get too caught up in visualization unless you really want to!
+   
+- **5b**
+    - Give the turret a configurable view cone target detection angle/width, so that it only detects things in front of it, within either a narrow or wide range
+    - Again, make sure this is relative to the local space of the turret, so that the trigger is moved and aligned along with the turret’s alignment
+    - Note: You don’t have to use angles or trigonometry for this, but you can if you want to!
+
+## Code
+[GitHub](https://github.com/anshul360/scalablehacker-blog/blob/main/src/content/post/assignment4/Assignment4SceneA.tsx)
