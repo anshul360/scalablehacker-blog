@@ -44,7 +44,7 @@ export default function SceneContainer({
 
 	return (
 		<div
-			className={`not-prose ${className}`}
+			className={`not-prose border ${className}`}
 			style={{
 				height,
 				width: "100%",

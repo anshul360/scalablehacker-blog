@@ -1,0 +1,42 @@
+---
+title: "Web GPU and TSL"
+description: "Experiment to understand WebGPU, TSL and anything inbetween"
+publishDate: "08 Mar 2026"
+updatedDate: "08 Mar 2026"
+coverImage:
+  src: "./gputsl.png"
+  alt: "Webgpu TSL"
+tags: ["threejs", "r3f", "webgpu", "tsl"]
+---
+
+import GPUShader from "./gpushader";
+
+This is my frst attempt on GPU renderer and TSL (Three.js Shading Language)
+
+
+## Result
+
+<GPUShader client:visible />
+
+## What I learned
+
+Got my hands wet with some TSL concepts:
+Nodes in TSL gives access to different parts of the mesh. And using `time` is how we modify things.
+-  Here I am using the MeshStandardNodeMaterial and directly manipulating the color node:
+    ``` ts
+    // pulse = sin(time * 2.0) * 0.5 + 0.5
+    const pulse = time.mul(2.0).sin().mul(1).add(0.5);
+
+    const colorA = color(0xff0000); // Red
+    const colorB = color(0x0000ff); // Blue
+    material.colorNode = mix(colorA, colorB, pulse);
+    ```
+- And this i how the shape is shifting using position node:
+    ```ts
+    // Displace vertices based on their local Y position + Time
+    const wave = positionLocal.y.add(time).cos().mul(0.2);
+    material.positionNode = positionLocal.add(vec3(0, wave, 0));
+    ```
+
+## Code
+[GitHub](https://github.com/anshul360/scalablehacker-blog/blob/main/src/content/post/webgpu-shaders/gpushader.tsx)
