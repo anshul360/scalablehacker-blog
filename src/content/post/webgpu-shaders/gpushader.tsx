@@ -49,7 +49,7 @@ const Scene = () => {
 export default function GPUShader() {
   return (
     <div
-      className=" w-50 h-50"
+      className=" w-50 h-50 border rounded-lg overflow-hidden"
       style={{
         width: "100%",
         height: 500,
