@@ -37,7 +37,9 @@ function ConcaveSurface() {
     if (!vertices) return;
 
     for (let i = 0; i < vertices.length; i += 3) {
+      // biome-ignore lint/style/noNonNullAssertion: <explanation>
       const x = vertices[i]!;
+      // biome-ignore lint/style/noNonNullAssertion: <explanation>
       const z = vertices[i + 2]!; // In Three.js, z is the depth axis
 
       // Use multiple sine waves to create complex, varying heights
@@ -69,7 +71,7 @@ function ConcaveSurface() {
   const halfDepth = terrainDepth / 2;
 
   useEffect(() => {
-    document.body.addEventListener("keydown", function (e) {
+    document.body.addEventListener("keydown", (e) => {
       const key = e.code.replace("Key", "").toLowerCase();
       if (
         keys.current &&
@@ -78,7 +80,7 @@ function ConcaveSurface() {
         keys.current[key as keyof typeof keys.current] = true;
     });
 
-    document.body.addEventListener("keyup", function (e) {
+    document.body.addEventListener("keyup", (e) => {
       const key = e.code.replace("Key", "").toLowerCase();
       if (
         keys.current &&
@@ -88,7 +90,7 @@ function ConcaveSurface() {
     });
 
     return () => {
-      document.body.removeEventListener("keydown", function (e) {
+      document.body.removeEventListener("keydown", (e) => {
         const key = e.code.replace("Key", "").toLowerCase();
         if (
           keys.current &&
@@ -97,7 +99,7 @@ function ConcaveSurface() {
           keys.current[key as keyof typeof keys.current] = true;
       });
 
-      document.body.removeEventListener("keyup", function (e) {
+      document.body.removeEventListener("keyup", (e) => {
         const key = e.code.replace("Key", "").toLowerCase();
         if (
           keys.current &&
@@ -115,6 +117,7 @@ function ConcaveSurface() {
     loader.load('/turret1.gltf', (gltf) => {
       scene.add(gltf.scene);
       turretRef.current = gltf.scene;
+      // biome-ignore lint/style/noNonNullAssertion: <explanation>
       gunRef.current = gltf.scene.getObjectByName("gun")!;
     }, undefined, (error) => {
       console.error(error);
@@ -168,6 +171,7 @@ function ConcaveSurface() {
     // Move camera and orbit target by the same delta so camera follows turret
     const delta = turretRef.current.position.clone().sub(prevPos);
     camera.position.add(delta);
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     const orbitControls = controls as any;
     if (orbitControls?.target) {
       orbitControls.target.add(delta);
@@ -184,10 +188,12 @@ function ConcaveSurface() {
     );
     const hits = raycaster.intersectObject(surfaceMeshRef.current);
     if (hits.length > 0) {
+      // biome-ignore lint/style/noNonNullAssertion: <explanation>
       turretRef.current.position.y = hits[0]!.point.y;
 
       // Tilt turret to match terrain normal + rotate to face away from camera
-      const normal = hits[0]!.face!.normal.clone().normalize();
+      // biome-ignore lint/style/noNonNullAssertion: <explanation>
+            const normal = hits[0]!.face!.normal.clone().normalize();
       const yawAngle = Math.atan2(-forward.x, -forward.z) + Math.PI / 2;
 
       // Quaternion to align up vector with terrain normal

@@ -63,7 +63,7 @@ function ConcaveSurface() {
   const raycaster = useMemo(() => new THREE.Raycaster(), []);
 
   useEffect(() => {
-    document.body.addEventListener("keydown", function (e) {
+    document.body.addEventListener("keydown", (e) => {
       const key = e.code.replace("Key", "").toLowerCase();
       if (
         keys.current &&
@@ -72,7 +72,7 @@ function ConcaveSurface() {
         keys.current[key as keyof typeof keys.current] = true;
     });
 
-    document.body.addEventListener("keyup", function (e) {
+    document.body.addEventListener("keyup", (e) => {
       const key = e.code.replace("Key", "").toLowerCase();
       if (
         keys.current &&
@@ -82,7 +82,7 @@ function ConcaveSurface() {
     });
 
     return () => {
-      document.body.removeEventListener("keydown", function (e) {
+      document.body.removeEventListener("keydown", (e) => {
         const key = e.code.replace("Key", "").toLowerCase();
         if (
           keys.current &&
@@ -91,7 +91,7 @@ function ConcaveSurface() {
           keys.current[key as keyof typeof keys.current] = true;
       });
 
-      document.body.removeEventListener("keyup", function (e) {
+      document.body.removeEventListener("keyup", (e) => {
         const key = e.code.replace("Key", "").toLowerCase();
         if (
           keys.current &&
