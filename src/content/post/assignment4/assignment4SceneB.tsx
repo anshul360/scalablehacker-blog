@@ -224,7 +224,7 @@ function Turret() {
 
   const moveSpeed = 0.1;
 
-  useFrame(() => {
+  useFrame((_, delta) => {
     if (!tankRef.current || !turretRef.current) return;
 
     const right = new THREE.Vector3();
