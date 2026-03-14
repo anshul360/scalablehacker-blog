@@ -41,7 +41,7 @@ const Scene = () => {
     const geometry = new THREE.IcosahedronGeometry(2, 64);
     const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
-  }, []);
+  }, [scene]);
 
   return <> </>;
 };
